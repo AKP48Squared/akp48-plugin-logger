@@ -4,8 +4,24 @@
   "description": "Logger plugin for AKP48. Logs messages using AKP48's global logger object.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preversion": "git checkout master && git pull && npm ls",
+    "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
+    "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
+    "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish"
   },
-  "author": "Austin Peterson <austin@akpwebdesign.com>",
-  "license": "MIT"
+  "author": "Austin Peterson <austin@akpwebdesign.com> (http://akpwebdesign.com)",
+  "contributors": [
+    "Alan H (Feildmaster) <admin@feildmaster.com> (http://feildmaster.com/)",
+    "Austin Peterson <austin@akpwebdesign.com> (http://akpwebdesign.com/)"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKP48Squared/logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AKP48Squared/logger/issues"
+  },
+  "homepage": "https://github.com/AKP48Squared/logger"
 }

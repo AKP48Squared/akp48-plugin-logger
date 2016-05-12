@@ -1,8 +1,7 @@
 'use strict';
-const MessageHandlerPlugin = require('../../lib/MessageHandlerPlugin');
 var c = require('irc-colors');
 
-class Logger extends MessageHandlerPlugin {
+class Logger extends global.AKP48.pluginTypes.MessageHandler {
   constructor(AKP48) {
     super('Logger', AKP48);
 
