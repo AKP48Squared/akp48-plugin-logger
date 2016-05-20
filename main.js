@@ -29,3 +29,4 @@ Logger.prototype.handleSentMessage = function (to, message, context) {
 };
 
 module.exports = Logger;
+module.exports.type = 'MessageHandler';
