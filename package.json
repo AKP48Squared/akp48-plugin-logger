@@ -1,6 +1,6 @@
 {
   "name": "akp48-plugin-logger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Logger plugin for AKP48. Logs messages using AKP48's global logger object.",
   "main": "main.js",
   "scripts": {
