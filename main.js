@@ -3,8 +3,10 @@ var c = require('irc-colors');
 
 class Logger extends global.AKP48.pluginTypes.MessageHandler {
   constructor(AKP48) {
-    super('Logger', AKP48);
+    super(AKP48, 'logger');
+  }
 
+  load() {
     this._AKP48.on('sendMsg', this.handleSentMessage);
     this._AKP48.on('fullMsg', this.handleFullMessage);
   }
@@ -29,5 +31,3 @@ Logger.prototype.handleSentMessage = function (to, message, context) {
 };
 
 module.exports = Logger;
-module.exports.type = 'MessageHandler';
-module.exports.pluginName = 'logger';
