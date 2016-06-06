@@ -12,12 +12,8 @@ class Logger extends global.AKP48.pluginTypes.MessageHandler {
   }
 }
 
-Logger.prototype.handleMessage = function (message, context, res) {
-  res(false);
-};
-
-Logger.prototype.handleFullMessage = function (message, context) {
-  var out = `<=== ${context.instanceId}:${context.to} | ${context.nick} | ${c.stripColorsAndStyle(message)}`;
+Logger.prototype.handleFullMessage = function (context) {
+  var out = `<=== ${context.instanceId()}:${context.to()} | ${context.nick()} | ${c.stripColorsAndStyle(context.text())}`;
   global.logger.stupid(out);
 };
 
