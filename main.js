@@ -20,7 +20,7 @@ Logger.prototype.handleFullMessage = function (context) {
 Logger.prototype.handleSentMessage = function (to, message, context) {
   var xtra = '';
   if(context.isEmote) {xtra = '/me ';}
-  var out = `===> ${context.instanceId}:${to} | ${(context.myNick ? context.myNick + ' | ' : '')}${xtra}${c.stripColorsAndStyle(message)}`;
+  var out = `===> ${context.instanceId()}:${to} | ${(context.myNick() ? context.myNick() + ' | ' : '')}${xtra}${c.stripColorsAndStyle(message)}`;
   setTimeout(function(){global.logger.stupid(out);},1); // Send to console after one millisecond,
   // because for some reason, sent messages are being handled faster than received messages.
   // This may be because of how the event listeners are working, but I'm not sure.
