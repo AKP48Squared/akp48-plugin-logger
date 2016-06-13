@@ -17,13 +17,15 @@ Logger.prototype.handleFullMessage = function (context) {
   global.logger.stupid(out);
 };
 
-Logger.prototype.handleSentMessage = function (to, message, context) {
+Logger.prototype.handleSentMessage = function (context) {
   var xtra = '';
   if(context.isEmote) {xtra = '/me ';}
-  var out = `===> ${context.instanceId()}:${to} | ${(context.myNick() ? context.myNick() + ' | ' : '')}${xtra}${c.stripColorsAndStyle(message)}`;
-  setTimeout(function(){global.logger.stupid(out);},1); // Send to console after one millisecond,
-  // because for some reason, sent messages are being handled faster than received messages.
-  // This may be because of how the event listeners are working, but I'm not sure.
+  var out = `===> ${context.instanceId()}:${context.to()} | ${(context.myNick() ? context.myNick() + ' | ' : '')}${xtra}${c.stripColorsAndStyle(context.text())}`;
+
+  //send logging message on next tick, to let the event queue finish first.
+  process.nextTick(() => {
+    global.logger.stupid(out);
+  });
 };
 
 module.exports = Logger;
