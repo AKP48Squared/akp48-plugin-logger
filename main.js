@@ -19,7 +19,7 @@ Logger.prototype.handleFullMessage = function (context) {
 
 Logger.prototype.handleSentMessage = function (context) {
   var xtra = '';
-  if(context.isEmote) {xtra = '/me ';}
+  if(context.getCustomData('isEmote')) {xtra = '/me ';}
   var out = `===> ${context.instanceId()}:${context.to()} | ${(context.myNick() ? context.myNick() + ' | ' : '')}${xtra}${c.stripColorsAndStyle(context.text())}`;
 
   //send logging message on next tick, to let the event queue finish first.

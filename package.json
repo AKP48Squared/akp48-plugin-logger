@@ -22,7 +22,7 @@
     "url": "https://github.com/AKP48Squared/logger/issues"
   },
   "homepage": "https://github.com/AKP48Squared/logger",
-  "optionalDependencies": {
+  "dependencies": {
     "irc-colors": "^1.2.1"
   }
 }
