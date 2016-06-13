@@ -7,7 +7,7 @@ class Logger extends global.AKP48.pluginTypes.MessageHandler {
   }
 
   load() {
-    this._AKP48.on('sendMsg', this.handleSentMessage);
+    this._AKP48.on('logMsg', this.handleSentMessage);
     this._AKP48.on('fullMsg', this.handleFullMessage);
   }
 }
