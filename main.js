@@ -1,5 +1,5 @@
 'use strict';
-const TextDecorator = new (global.AKP48.TextDecorator)();
+const TextDecorator = new (global.AKP48.TextDecorators.default)();
 
 class Logger extends global.AKP48.pluginTypes.MessageHandler {
   constructor(AKP48) {
